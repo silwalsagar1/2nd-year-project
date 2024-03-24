@@ -15,138 +15,169 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/responsive.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body class="sub_page">
   <div class="hero_area">
     <header class="header_section">
       <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-            <img  class="logo" 
-src="myimg/20240104_235634_0000.svg" alt="" />
-            <span>
-              NAVOTSAAH
-            </span>
+      <nav class="navbar navbar-expand-lg navbar-dark" style="position: sticky">
+  <div class="container-fluid costom_nav">
+    <a class="navbar-brand" href="index.php">
+      <img class="logo" src="myimg/20240104_235634_0000.svg" style="width:3rem;" />
+      <span>NAVOTSAAH</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse link_costom " id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  href="category.php">Our services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.php">About us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <div class=" d-flex justify-content-end align-items-center">
+      
+      <?php
+       session_start();
+       $isLoggedIn = isset($_SESSION['user_id']);
+        if ($isLoggedIn) {
+          include 'config.php';
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="about.html"> About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="work.html">Work </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="category.html"> OUR SERVISES</a>
-              </li>
-            </ul>
-            <div class="user_option">
-              <a href="">
-                <span>
-                  Login
-                </span>
-              </a>
-              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
-            </div>
-          </div>
-          <div>
-            <div class="custom_menu-btn ">
-              <button>
-                <span class=" s-1">
+            // Fetch the username based on the user_id from the session
+            $user_id = $_SESSION['user_id'];
+            $sql = "SELECT user_name FROM users WHERE user_id = '$user_id'";
+            $result = $conn->query($sql);
 
-                </span>
-                <span class="s-2">
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $username = $row['user_name'];
 
-                </span>
-                <span class="s-3">
+                echo '
+                  <div class="nav-item">
+                    <a class="nav-link" href="userinfo.php">
+                      <img src="myimg/person.svg" style="width:2rem;"/>
+                      <span style="font-weight:600;">' . $username . '</span>
+                    </a>
+                  </div>
+                ';
+            } else {
+                echo "Username not found in the database.";
+            }
 
-                </span>
-              </button>
-            </div>
-          </div>
+            $conn->close();
+        } else {
+            // If user is not logged in, show login/signup button
+            echo '
+              <div class="nav-item">
+                <a class="nav-link" href="login.php">
+                  Login/Signup
+                </a>
+              </div>
+            ';
+        }
+    ?>
 
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
+    </div>
+  </ul>
+    </div>
+  </div>
+</nav>
+        </div>
+      </header>
   </div>
 
-
-  <!-- experience section -->
-
-  <section class="experience_section layout_padding-top layout_padding2-bottom">
+  <section class="category_section layout_padding">
     <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="img-box">
-            <img src="images/experience-img.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-md-7">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>
-                LEADING BUSINESSES WITH <br> <span>MARKETING SOLUTIONS</span>
-              </h2>
-            </div>
-            <p>
-              Navotsaah, a leading marketing company, stands out for its dynamic approach in providing comprehensive solutions for businesses navigating the digital landscape. With a seasoned team, Navotsaah excels in digital marketing strategies, leveraging SEO, social media, content creation, and data-driven insights. The company's client-centric focus fosters long-term relationships, offering innovative solutions that empower businesses to thrive in today's competitive market. From brand revamps to robust online presences, Navotsaah is a trusted ally committed to delivering measurable results and contributing to the success stories of diverse industries.
-            </p>
-            <div class="btn-box">
-              <a href="" class="btn-1">
-                Read More
-              </a>
-              <a href="" class="btn-2">
-                Hire
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- end experience section -->
-
-
-  <!-- about section -->
-  <section class="about_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-lg-9 mx-auto">
-          <div class="img-box">
-            <img src="myimg/marketing2.svg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="detail-box">
+      <div class="heading_container">
         <h2>
-          About NAVOTSAAH  
+          OUR SERVICES
         </h2>
-        <p>
-          NAVOTSAAH for an unparelleled experience. we prioritize your satisfaction, delivering expectional quality that exceeds expectations. our customer centric approach ensures your happiness and success, with dedicated team of experts commited to innovation and reliability. count on us for unwavering support, making NAVOTSAAH  the trusted partner for your needs. elevate your journey with a brand that values excellence and prioritixe your unique requirements 
-        </p>
-        <a href="">
-          Read More
-        </a>
+      </div>
+      <div class="category_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="myimg/sm2.svg" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+            Social Media Marketing
+            </h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="myimg/content4.svg" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Content Marketing
+            </h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!-- <img src="images/c3.png" alt=""> -->
+            <img src="myimg/seo.svg" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              SEO Markting
+            </h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="myimg/emailM.svg" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              E-mail Marketing
+            </h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="myimg/influencerM.svg" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Influencer Marketing
+            </h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="myimg/advert.svg" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Advertisement Marketing
+            </h5>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- end about section -->
-
-  <!-- info section -->
 
   <section class="info_section ">
     <div class="info_container layout_padding-top">
@@ -293,4 +324,8 @@ src="myimg/20240104_235634_0000.svg" alt="" />
       </p>
     </div>
   </footer>
-
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="module" src="js/custom.js"></script>
+</body>
+</html>

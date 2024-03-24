@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/responsive.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body class="sub_page">
@@ -25,63 +26,38 @@
   <div class="hero_area">
     <header class="header_section">
       <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-            <img  class="logo" 
-src="myimg/20240104_235634_0000.svg" alt="" />
-            <span>
-              NAVOTSAAH
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  ">
-              <li class="nav-item ">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="work.html">Work </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="category.html"> Category </a>
-              </li>
-            </ul>
-            <div class="user_option">
-              <a href="">
-                <span>
-                  Login
-                </span>
-              </a>
-              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+          <div class="container-fluid white-text">
+              <a class="navbar-brand" href="index.html">
+                  <img  class="logo" 
+      src="myimg/20240104_235634_0000.svg" style="width:3rem;" />
+                  <span>
+                    NAVOTSAAH
+                  </span>
+                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse link_costom" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="category.php">Our services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.php">About us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="work.php">work</a>
+                </li>
+              </ul>
             </div>
           </div>
-          <div>
-            <div class="custom_menu-btn ">
-              <button>
-                <span class=" s-1">
-
-                </span>
-                <span class="s-2">
-
-                </span>
-                <span class="s-3">
-
-                </span>
-              </button>
-            </div>
-          </div>
-
         </nav>
-      </div>
-    </header>
+        </div>
+      </header>
   </div>
 
   <section class="freelance_section layout_padding">
@@ -177,6 +153,7 @@ src="myimg/20240104_235634_0000.svg" alt="" />
       </div>
     </div>
   </section>
+
 
   <!-- end freelance section -->
 
@@ -321,23 +298,19 @@ src="myimg/20240104_235634_0000.svg" alt="" />
 
   <!-- footer section -->
   <footer class="container-fluid footer_section ">
-    <div class="container">
-      <p>
-        &copy; <span id="displayDate"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
-    </div>
-  </footer>
+    <footer class="container-fluid footer_section ">
+      <div class="container">
+        <p>
+          &copy; <span id="displayDate"></span> All Rights Reserved By NAVOTSAAH
+        </p>
+      </div>
+    </footer>
+    
   <!-- end  footer section -->
 
-
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/custom.js"></script>
-
-
-
-</body>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="module" src="js/custom.js"></script>
 </body>
 
 </html>

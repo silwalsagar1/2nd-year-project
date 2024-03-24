@@ -71,6 +71,14 @@ body {
           flex-direction: column;
   position: relative;
 }
+.SAGAR{
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.08);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.9px);
+-webkit-backdrop-filter: blur(12.9px);
+}
 
 .sub_page .hero_area {
   height: auto;
@@ -81,9 +89,20 @@ body {
 .hero_area.sub_pages {
   height: auto;
 }
-
-.header_section {
-  overflow-x:hidden;
+.white-text {
+  color: white;
+}
+.link_costom li {
+  font-weight: 500;
+}
+}
+.navbar_costom{
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.08);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.9px);
+-webkit-backdrop-filter: blur(12.9px);
 }
 
 .header_section .container-fluid {
@@ -895,7 +914,7 @@ a:focus {
           transform: rotate(-45deg) translate(8px, -8px);
 }
 .logincard{
-  background: rgb(26,46,53);
+  /* background: rgb(26,46,53); */
   background: linear-gradient(150deg, rgba(26,46,53,1) 22%, rgba(0,0,0,1) 86%);
 border-radius: 30px;
 box-shadow: -15px -10px 30px rgba(0, 0, 0, 0.678);
@@ -903,18 +922,41 @@ backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(100px);
 padding: 1rem;
 color: #1cbbb4;
+
 }
 .logincard form label{
-  color: #1cbbb4;
+  color: whitesmoke;
+  font-weight:bolder;
 }
 .logincard form input{
 background: transparent;
-border-radius: 10rem;
+color: rgb(197, 195, 195);
+border-radius: 5rem;
 border: 2px solid;
 height:2rem ;
+
+
+}
+.UserCard_body{
+  color: rgb(207, 205, 205);
+  width: fit-content;
+  min-width: 90%;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(17.9px);
+-webkit-backdrop-filter: blur(17.9px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.UserCard{
 
 }
 .aaa{
   font-weight: 800;
   color: white;
 }
+body::-webkit-scrollbar {
+  width: 0; 
+
+}
+
